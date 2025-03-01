@@ -65,7 +65,7 @@ export default function Kehadiran() {
     }
 
     if (!location) {
-      setError('Lokasi belum terdeteksi. Silakan klik tombol "Dapatkan Lokasi"');
+      setError('Lokasi belum terdeteksi. Silakan klik tombol &quot;Dapatkan Lokasi&quot;');
       return;
     }
 
@@ -232,7 +232,7 @@ export default function Kehadiran() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <p className="text-gray-600 text-center">
-                    Klik tombol "Dapatkan Lokasi" untuk menampilkan lokasi Anda saat ini
+                    Klik tombol &quot;Dapatkan Lokasi&quot; untuk menampilkan lokasi Anda saat ini
                   </p>
                 </div>
               )}
