@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
@@ -10,11 +10,7 @@ export function AuthProvider({ children }) {
   const [username, setUsername] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    checkAuthStatus();
-  }, []);
-
-  const checkAuthStatus = async () => {
+  const checkAuthStatus = useCallback(async () => {
     const token = localStorage.getItem('token');
     const storedUsername = localStorage.getItem('username');
     
@@ -34,7 +30,11 @@ export function AuthProvider({ children }) {
       handleLogout();
     }
     setIsLoading(false);
-  };
+  }, []); // Dependencies kosong karena tidak menggunakan props atau state external
+
+  useEffect(() => {
+    checkAuthStatus();
+  }, [checkAuthStatus]);
 
   const handleLogin = (token, user) => {
     localStorage.setItem('token', token);

@@ -39,7 +39,7 @@ export default function Login() {
     };
 
     checkAuth();
-  }, []);
+  }, [router]); // Tambahkan router sebagai dependency
 
   const handleSubmit = async (e) => {
     e.preventDefault();
